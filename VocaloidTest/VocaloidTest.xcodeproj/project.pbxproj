@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C0E3108F3AC94623AE2849F /* Pods_VocaloidTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FED4E83C721F7C6E0B5332F /* Pods_VocaloidTest.framework */; };
+		7C397E2A21881AA500FF42EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E2921881AA500FF42EC /* AppDelegate.swift */; };
+		7C397E2C21881AA500FF42EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E2B21881AA500FF42EC /* ViewController.swift */; };
+		7C397E2F21881AA500FF42EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C397E2D21881AA500FF42EC /* Main.storyboard */; };
+		7C397E3121881AA600FF42EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C397E3021881AA600FF42EC /* Assets.xcassets */; };
+		7C397E3421881AA600FF42EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C397E3221881AA600FF42EC /* LaunchScreen.storyboard */; };
+		7C397E4B2188226100FF42EC /* FrameStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E3D2188226100FF42EC /* FrameStandard.swift */; };
+		7C397E4C2188226100FF42EC /* StaticProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E3E2188226100FF42EC /* StaticProperties.swift */; };
+		7C397E4D2188226100FF42EC /* ExtensionForSomeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E482188226100FF42EC /* ExtensionForSomeClass.swift */; };
+		7C397E4E2188226100FF42EC /* ToolClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E492188226100FF42EC /* ToolClass.swift */; };
+		7C397E4F2188226100FF42EC /* BasicKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E4A2188226100FF42EC /* BasicKnowledge.swift */; };
+		7C397E532188282400FF42EC /* AboutAudioKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E522188282400FF42EC /* AboutAudioKit.swift */; };
+		7C397E5521882E3F00FF42EC /* MusicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E5421882E3F00FF42EC /* MusicProperties.swift */; };
+		7C397E5721883E6000FF42EC /* MusicConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E5621883E6000FF42EC /* MusicConverter.swift */; };
+		7C397E592188420200FF42EC /* GlobalMusicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E582188420200FF42EC /* GlobalMusicProperties.swift */; };
+		7C397E5D2188708E00FF42EC /* totalFile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C397E5C2188708E00FF42EC /* totalFile.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		55A93EA735C7155E54A1D3B9 /* Pods-VocaloidTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VocaloidTest.release.xcconfig"; path = "Target Support Files/Pods-VocaloidTest/Pods-VocaloidTest.release.xcconfig"; sourceTree = "<group>"; };
+		7C397E2621881AA500FF42EC /* VocaloidTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocaloidTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C397E2921881AA500FF42EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7C397E2B21881AA500FF42EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7C397E2E21881AA500FF42EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C397E3021881AA600FF42EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C397E3321881AA600FF42EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C397E3521881AA600FF42EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C397E3D2188226100FF42EC /* FrameStandard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameStandard.swift; sourceTree = "<group>"; };
+		7C397E3E2188226100FF42EC /* StaticProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticProperties.swift; sourceTree = "<group>"; };
+		7C397E482188226100FF42EC /* ExtensionForSomeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionForSomeClass.swift; sourceTree = "<group>"; };
+		7C397E492188226100FF42EC /* ToolClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolClass.swift; sourceTree = "<group>"; };
+		7C397E4A2188226100FF42EC /* BasicKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicKnowledge.swift; sourceTree = "<group>"; };
+		7C397E522188282400FF42EC /* AboutAudioKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAudioKit.swift; sourceTree = "<group>"; };
+		7C397E5421882E3F00FF42EC /* MusicProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProperties.swift; sourceTree = "<group>"; };
+		7C397E5621883E6000FF42EC /* MusicConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicConverter.swift; sourceTree = "<group>"; };
+		7C397E582188420200FF42EC /* GlobalMusicProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMusicProperties.swift; sourceTree = "<group>"; };
+		7C397E5C2188708E00FF42EC /* totalFile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = totalFile.wav; sourceTree = "<group>"; };
+		9FED4E83C721F7C6E0B5332F /* Pods_VocaloidTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VocaloidTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B833FA858497B7B262A6956A /* Pods-VocaloidTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VocaloidTest.debug.xcconfig"; path = "Target Support Files/Pods-VocaloidTest/Pods-VocaloidTest.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C397E2321881AA500FF42EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C0E3108F3AC94623AE2849F /* Pods_VocaloidTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C397E1D21881AA500FF42EC = {
+			isa = PBXGroup;
+			children = (
+				7C397E2821881AA500FF42EC /* VocaloidTest */,
+				7C397E2721881AA500FF42EC /* Products */,
+				8E1AF97AA0D62DD4DB8D1887 /* Pods */,
+				C6002A4C273B101B5318BEE2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7C397E2721881AA500FF42EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E2621881AA500FF42EC /* VocaloidTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C397E2821881AA500FF42EC /* VocaloidTest */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E502188227000FF42EC /* App */,
+				7C397E3B2188226100FF42EC /* Class */,
+			);
+			path = VocaloidTest;
+			sourceTree = "<group>";
+		};
+		7C397E3B2188226100FF42EC /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E472188226100FF42EC /* GenericTools */,
+				7C397E3C2188226100FF42EC /* AppStandard */,
+				7C397E402188226100FF42EC /* Model */,
+				7C397E3F2188226100FF42EC /* ModelManager */,
+				7C397E412188226100FF42EC /* BasicClass */,
+				7C397E442188226100FF42EC /* Main */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		7C397E3C2188226100FF42EC /* AppStandard */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E3D2188226100FF42EC /* FrameStandard.swift */,
+				7C397E3E2188226100FF42EC /* StaticProperties.swift */,
+				7C397E5421882E3F00FF42EC /* MusicProperties.swift */,
+			);
+			path = AppStandard;
+			sourceTree = "<group>";
+		};
+		7C397E3F2188226100FF42EC /* ModelManager */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E5621883E6000FF42EC /* MusicConverter.swift */,
+			);
+			path = ModelManager;
+			sourceTree = "<group>";
+		};
+		7C397E402188226100FF42EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E582188420200FF42EC /* GlobalMusicProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C397E412188226100FF42EC /* BasicClass */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E422188226100FF42EC /* Other */,
+				7C397E432188226100FF42EC /* View */,
+			);
+			path = BasicClass;
+			sourceTree = "<group>";
+		};
+		7C397E422188226100FF42EC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E522188282400FF42EC /* AboutAudioKit.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		7C397E432188226100FF42EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7C397E442188226100FF42EC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E2D21881AA500FF42EC /* Main.storyboard */,
+				7C397E452188226100FF42EC /* Transaction */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7C397E452188226100FF42EC /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E462188226100FF42EC /* HomeVC */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		7C397E462188226100FF42EC /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E2B21881AA500FF42EC /* ViewController.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		7C397E472188226100FF42EC /* GenericTools */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E482188226100FF42EC /* ExtensionForSomeClass.swift */,
+				7C397E492188226100FF42EC /* ToolClass.swift */,
+				7C397E4A2188226100FF42EC /* BasicKnowledge.swift */,
+			);
+			path = GenericTools;
+			sourceTree = "<group>";
+		};
+		7C397E502188227000FF42EC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E2921881AA500FF42EC /* AppDelegate.swift */,
+				7C397E3221881AA600FF42EC /* LaunchScreen.storyboard */,
+				7C397E3521881AA600FF42EC /* Info.plist */,
+				7C397E512188229700FF42EC /* Resource */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		7C397E512188229700FF42EC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				7C397E3021881AA600FF42EC /* Assets.xcassets */,
+				7C397E5C2188708E00FF42EC /* totalFile.wav */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		8E1AF97AA0D62DD4DB8D1887 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B833FA858497B7B262A6956A /* Pods-VocaloidTest.debug.xcconfig */,
+				55A93EA735C7155E54A1D3B9 /* Pods-VocaloidTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C6002A4C273B101B5318BEE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FED4E83C721F7C6E0B5332F /* Pods_VocaloidTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C397E2521881AA500FF42EC /* VocaloidTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C397E3821881AA600FF42EC /* Build configuration list for PBXNativeTarget "VocaloidTest" */;
+			buildPhases = (
+				1F7AED48C9C89763D576CC0F /* [CP] Check Pods Manifest.lock */,
+				7C397E2221881AA500FF42EC /* Sources */,
+				7C397E2321881AA500FF42EC /* Frameworks */,
+				7C397E2421881AA500FF42EC /* Resources */,
+				9962816044BB89A7B268CEBE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VocaloidTest;
+			productName = VocaloidTest;
+			productReference = 7C397E2621881AA500FF42EC /* VocaloidTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C397E1E21881AA500FF42EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "X Young.";
+				TargetAttributes = {
+					7C397E2521881AA500FF42EC = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 7C397E2121881AA500FF42EC /* Build configuration list for PBXProject "VocaloidTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7C397E1D21881AA500FF42EC;
+			productRefGroup = 7C397E2721881AA500FF42EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C397E2521881AA500FF42EC /* VocaloidTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C397E2421881AA500FF42EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C397E3421881AA600FF42EC /* LaunchScreen.storyboard in Resources */,
+				7C397E5D2188708E00FF42EC /* totalFile.wav in Resources */,
+				7C397E3121881AA600FF42EC /* Assets.xcassets in Resources */,
+				7C397E2F21881AA500FF42EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F7AED48C9C89763D576CC0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VocaloidTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9962816044BB89A7B268CEBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VocaloidTest/Pods-VocaloidTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework",
+				"${BUILT_PRODUCTS_DIR}/Timepiece/Timepiece.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyXMLParser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Timepiece.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VocaloidTest/Pods-VocaloidTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C397E2221881AA500FF42EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C397E532188282400FF42EC /* AboutAudioKit.swift in Sources */,
+				7C397E4E2188226100FF42EC /* ToolClass.swift in Sources */,
+				7C397E4B2188226100FF42EC /* FrameStandard.swift in Sources */,
+				7C397E2C21881AA500FF42EC /* ViewController.swift in Sources */,
+				7C397E4D2188226100FF42EC /* ExtensionForSomeClass.swift in Sources */,
+				7C397E592188420200FF42EC /* GlobalMusicProperties.swift in Sources */,
+				7C397E5521882E3F00FF42EC /* MusicProperties.swift in Sources */,
+				7C397E5721883E6000FF42EC /* MusicConverter.swift in Sources */,
+				7C397E4C2188226100FF42EC /* StaticProperties.swift in Sources */,
+				7C397E2A21881AA500FF42EC /* AppDelegate.swift in Sources */,
+				7C397E4F2188226100FF42EC /* BasicKnowledge.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C397E2D21881AA500FF42EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C397E2E21881AA500FF42EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7C397E3221881AA600FF42EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C397E3321881AA600FF42EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C397E3621881AA600FF42EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7C397E3721881AA600FF42EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C397E3921881AA600FF42EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B833FA858497B7B262A6956A /* Pods-VocaloidTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9ZC5Q2DDV;
+				INFOPLIST_FILE = VocaloidTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Young.VocaloidTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7C397E3A21881AA600FF42EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55A93EA735C7155E54A1D3B9 /* Pods-VocaloidTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9ZC5Q2DDV;
+				INFOPLIST_FILE = VocaloidTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Young.VocaloidTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C397E2121881AA500FF42EC /* Build configuration list for PBXProject "VocaloidTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C397E3621881AA600FF42EC /* Debug */,
+				7C397E3721881AA600FF42EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C397E3821881AA600FF42EC /* Build configuration list for PBXNativeTarget "VocaloidTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C397E3921881AA600FF42EC /* Debug */,
+				7C397E3A21881AA600FF42EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C397E1E21881AA500FF42EC /* Project object */;
+}

@@ -1,0 +1,29 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '11.0'
+use_frameworks!
+
+target 'VocaloidTest' do
+    
+# 界面
+    pod 'SnapKit', '~> 4.0.0'                                       # 布局
+    pod 'ChameleonFramework/Swift',
+        :git => 'https://github.com/ViccAlexander/Chameleon.git'    # 颜色扩展
+
+# 提示
+    pod 'SVProgressHUD'                                             # 加载中菊花
+    
+# 时间处理
+    pod 'Timepiece'
+    
+# 数据处理
+    pod 'SwiftyXMLParser',
+        :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git' # XML文件读取
+
+# 音频处理
+    pod 'AudioKit', '~> 4.0'
+    pod 'AudioKit/UI'
+
+
+end
+
+

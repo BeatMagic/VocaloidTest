@@ -1,0 +1,56 @@
+PODS:
+  - AudioKit (4.5.2):
+    - AudioKit/Core (= 4.5.2)
+    - AudioKit/UI (= 4.5.2)
+  - AudioKit/Core (4.5.2)
+  - AudioKit/UI (4.5.2):
+    - AudioKit/Core
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - SnapKit (4.0.1)
+  - SVProgressHUD (2.2.5)
+  - SwiftyXMLParser (4.2.0)
+  - Timepiece (1.3.1)
+
+DEPENDENCIES:
+  - AudioKit (~> 4.0)
+  - AudioKit/UI
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - SnapKit (~> 4.0.0)
+  - SVProgressHUD
+  - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
+  - Timepiece
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AudioKit
+    - SnapKit
+    - SVProgressHUD
+    - Timepiece
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+  SwiftyXMLParser:
+    :git: https://github.com/yahoojapan/SwiftyXMLParser.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
+  SwiftyXMLParser:
+    :commit: 7e930e74ee2e4ccfe5d684d4dc1002fcc99c6e60
+    :git: https://github.com/yahoojapan/SwiftyXMLParser.git
+
+SPEC CHECKSUMS:
+  AudioKit: af6770360f1d8b2aed16ce2802dafe69f0e592d0
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyXMLParser: 0942fd979ab5c54658e16628156e9d32e08924c5
+  Timepiece: c0760ec0e545697d86b80424dcd2b4d5ef66cf51
+
+PODFILE CHECKSUM: 7de87a72029e6ee460558ea2e4331154c2aceda6
+
+COCOAPODS: 1.6.0.beta.1
