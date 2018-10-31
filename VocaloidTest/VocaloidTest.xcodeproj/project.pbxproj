@@ -22,7 +22,8 @@
 		7C397E5521882E3F00FF42EC /* MusicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E5421882E3F00FF42EC /* MusicProperties.swift */; };
 		7C397E5721883E6000FF42EC /* MusicConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E5621883E6000FF42EC /* MusicConverter.swift */; };
 		7C397E592188420200FF42EC /* GlobalMusicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E582188420200FF42EC /* GlobalMusicProperties.swift */; };
-		7C397E5D2188708E00FF42EC /* totalFile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C397E5C2188708E00FF42EC /* totalFile.wav */; };
+		7CAC10AE21889C3C00BCD36C /* totalFile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CAC10AD21889C3C00BCD36C /* totalFile.wav */; };
+		7CAC10B421889F5700BCD36C /* 洛天依歌曲测试_midi.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7CAC10B321889F5700BCD36C /* 洛天依歌曲测试_midi.mid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +44,8 @@
 		7C397E5421882E3F00FF42EC /* MusicProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProperties.swift; sourceTree = "<group>"; };
 		7C397E5621883E6000FF42EC /* MusicConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicConverter.swift; sourceTree = "<group>"; };
 		7C397E582188420200FF42EC /* GlobalMusicProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMusicProperties.swift; sourceTree = "<group>"; };
-		7C397E5C2188708E00FF42EC /* totalFile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = totalFile.wav; sourceTree = "<group>"; };
+		7CAC10AD21889C3C00BCD36C /* totalFile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = totalFile.wav; sourceTree = "<group>"; };
+		7CAC10B321889F5700BCD36C /* 洛天依歌曲测试_midi.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "洛天依歌曲测试_midi.mid"; sourceTree = "<group>"; };
 		9FED4E83C721F7C6E0B5332F /* Pods_VocaloidTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VocaloidTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B833FA858497B7B262A6956A /* Pods-VocaloidTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VocaloidTest.debug.xcconfig"; path = "Target Support Files/Pods-VocaloidTest/Pods-VocaloidTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,7 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				7C397E3021881AA600FF42EC /* Assets.xcassets */,
-				7C397E5C2188708E00FF42EC /* totalFile.wav */,
+				7CAC10B321889F5700BCD36C /* 洛天依歌曲测试_midi.mid */,
+				7CAC10AD21889C3C00BCD36C /* totalFile.wav */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -283,7 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C397E3421881AA600FF42EC /* LaunchScreen.storyboard in Resources */,
-				7C397E5D2188708E00FF42EC /* totalFile.wav in Resources */,
+				7CAC10B421889F5700BCD36C /* 洛天依歌曲测试_midi.mid in Resources */,
+				7CAC10AE21889C3C00BCD36C /* totalFile.wav in Resources */,
 				7C397E3121881AA600FF42EC /* Assets.xcassets in Resources */,
 				7C397E2F21881AA500FF42EC /* Main.storyboard in Resources */,
 			);

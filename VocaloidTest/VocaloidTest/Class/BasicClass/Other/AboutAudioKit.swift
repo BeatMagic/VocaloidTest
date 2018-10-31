@@ -11,43 +11,30 @@ import AudioKit
 
 class AboutAudioKit: NSObject {
     // MARK: - 属性
-    /// midi
-    private let midi = AKMIDI()
     
     /// Sequencer
-    private var finalSequencer: AKSequencer = AKSequencer.init()
+    private var finalSequencer: AKSequencer!
     
     /// 主混合器
     private var mainMixer: AKMixer = AKMixer.init()
     
     
-    init(wavFileName: String) {
+    init(wavFileName: String, midiFileName: String) {
         super.init()
-        
-        midi.createVirtualPorts()
-        midi.openInput("Session 1")
-        midi.openOutput()
         
         AKAudioFile.cleanTempDirectory()
         AKSettings.enableLogging = false
         AKSettings.bufferLength = .medium
         AKSettings.playbackWhileMuted = true
         
-        do {
-            try AKSettings.setSession(category: .playback, with: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
-        } catch {
-            AKLog("Could not set session category.")
-        }
-        
-        
         self.loadSampler(wavFileName: wavFileName)
         
-        let sampler = MusicProperties.SamplersDict["a_C4"]
+        self.loadMidi(midiFileName)
         
-        AudioKit.output = sampler
-        
+        AudioKit.output = self.mainMixer
         
         try! AudioKit.start()
+        
         
     }
 }
@@ -89,11 +76,6 @@ extension AboutAudioKit {
                 name: unitFileName
             )
             
-            /*
-             let sampler = AKSampler.init(attackDuration: <#T##Double#>, decayDuration: <#T##Double#>, sustainLevel: <#T##Double#>, releaseDuration: <#T##Double#>, filterEnable: <#T##Bool#>, filterAttackDuration: <#T##Double#>, filterDecayDuration: <#T##Double#>, filterSustainLevel: <#T##Double#>, filterReleaseDuration: <#T##Double#>, glideRate: <#T##Double#>, loopThruRelease: <#T##Bool#>, isMonophonic: <#T##Bool#>, isLegato: <#T##Bool#>)
-             
-             */
-            
             let sampler = AKSampler.init(glideRate: 0, loopThruRelease: false, isMonophonic: true, isLegato: true)
             
             let sampleDescriptor = AKSampleDescriptor.init(
@@ -114,37 +96,89 @@ extension AboutAudioKit {
             
             sampler.buildKeyMap()
             
-            // 存储
-            MusicProperties.SamplersDict[unitFileName] = sampler
             
             // 绑定
-            let _ = self.finalSequencer.newTrack()
+            sampler.connect(to: self.mainMixer)
             
-            
-//            self.finalSequencer.tracks[index].add(noteNumber: <#T##MIDINoteNumber#>, velocity: <#T##MIDIVelocity#>, position: <#T##AKDuration#>, duration: <#T##AKDuration#>)
-            
+            // 存储
+            MusicProperties.SamplersDict[unitFileName] = sampler
+        
         }
         
         
     }// funcEnd
     
+    private func loadMidi(_ midiFileName: String) {
+        self.finalSequencer = AKSequencer()
+        self.finalSequencer.loadMIDIFile(midiFileName)
+        self.finalSequencer.enableLooping()
+
+        
+    }
+    
+    private func playNote(word: String, note: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+        MusicProperties.SamplersDict[word]!.play(noteNumber: note, velocity: velocity)
+    }
+    
 }
 
+// MARK: - 接口
 extension AboutAudioKit {
     func play() -> Void {
-        let sampler = MusicProperties.SamplersDict["a_C4"]
+        self.mainMixer.play()
         
-        sampler?.play(noteNumber: MusicConverter.getMidiNoteFromString("C4"), velocity: MIDIVelocity.init(128), frequency: MusicConverter.getFrequencyFrom(pitchName: "C4"))
+        let noteArray = self.finalSequencer.tracks[1].getMIDINoteData()
         
+        var currentTime = 0.0
+        
+        var index = 0
+        
+        for note in noteArray {
+            
+            if note.noteNumber != 0 {
+                let word = MusicProperties.wordArray[index]
+                let sampler = MusicProperties.SamplersDict[word]
+                let noteString: String = {
+                    
+                    if let range = word.range(of: "_", options: .backwards, range: nil, locale: nil) {
+                        // 获取音符字符串
+                        let tmpString = word.cutWithPlaces(startPlace: range.upperBound.encodedOffset, endPlace: word.count)
+                        
+                        return tmpString
+                        
+                    }else {
+                        return ""
+                        
+                    }
+                }()
+                
+                let ownNoteNumber = MusicConverter.getMidiNoteFromString(noteString) - 12
+                
+                
+                DelayTask.createTaskWith(workItem: {
+                    sampler!.play(noteNumber: ownNoteNumber, velocity: note.velocity)
+                    
+                }, finishedCallBack: nil, delayTime: currentTime)
+                
+                
+                DelayTask.createTaskWith(workItem: {
+                    sampler!.stop(noteNumber: ownNoteNumber)
+                    
+                }, finishedCallBack: nil, delayTime: currentTime + note.duration.seconds)
+                
+                index += 1
+            }
+            
+            
+            currentTime += note.duration.seconds
+            
+        }
     }
     
     
     func stop() -> Void {
-        let sampler = MusicProperties.SamplersDict["a_C4"]
-        
-        sampler?.stop(noteNumber: MusicConverter.getMidiNoteFromString("C4"))
-        
+        self.mainMixer.stop()
+        DelayTask.cancelAllWorkItems()
     }
-    
     
 }

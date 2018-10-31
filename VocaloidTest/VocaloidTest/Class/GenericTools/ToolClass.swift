@@ -412,15 +412,30 @@ public class DelayTask: NSObject {
     static var workTimerArray: [Timer] = []
 
     /// 创建一个延时执行任务并加入任务字典
-    static func createTaskWith(workItem: (() -> ())?, delayTime: TimeInterval) -> Void {
+    static func createTaskWith(workItem: (() -> ())?, finishedCallBack: (() -> ())?, delayTime: TimeInterval) -> Void {
         
         let workTimer = Timer.scheduledTimer(
-                            withTimeInterval: delayTime,
-                            repeats: false) { (timer) in
-                                if workItem != nil {
-                                    workItem!()
-                                }
-                        }
+            withTimeInterval: delayTime,
+            repeats: false) { (timer) in
+                if workItem != nil {
+                    let queue = DispatchQueue.init(label: "timerQueue")
+                    
+                    queue.async {
+                        workItem!()
+                        
+                    }
+                    
+                    if let callBack = finishedCallBack {
+                        let group = DispatchGroup.init()
+                        
+                        group.notify(queue: queue, execute: {
+                            callBack()
+                            
+                        })
+                    }
+                    
+                }
+            }
         
         self.workTimerArray.append(workTimer)
         
@@ -430,7 +445,7 @@ public class DelayTask: NSObject {
         for workTimer in workTimerArray {
             workTimer.invalidate()
         }
-
+        
         self.workTimerArray = []
     }// funcEnd
     

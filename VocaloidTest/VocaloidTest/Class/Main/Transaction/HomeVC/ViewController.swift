@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 
 class ViewController: UIViewController {
-    var audioKitObj = AboutAudioKit.init(wavFileName: "totalFile.wav")
+    var audioKitObj = AboutAudioKit.init(wavFileName: "totalFile.wav", midiFileName: "洛天依歌曲测试_midi")
 
     // MARK: - 记录属性
     /// 当前播放属性
@@ -83,5 +83,9 @@ extension ViewController {
         
         audioKitObj.stop()
     }
+}
+
+extension ViewController: AKMIDIListener {
+    
 }
 
