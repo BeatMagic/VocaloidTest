@@ -11,29 +11,49 @@ import AudioKit
 
 class AboutAudioKit: NSObject {
     // MARK: - 属性
+    /// 自我Midi
+    private var ownMidi: AKMIDI = AKMIDI()
     
     /// Sequencer
-    private var finalSequencer: AKSequencer!
+    private var finalSequencer: AKSequencer?
     
     /// 主混合器
     private var mainMixer: AKMixer = AKMixer.init()
+    
+    /// 当前音Index计数器
+    private var currentMidiNoteIndex = 0
+    
+    /// 记录
+    private var midiFileName = ""
     
     
     init(wavFileName: String, midiFileName: String) {
         super.init()
         
+        // AudioKit的设置
         AKAudioFile.cleanTempDirectory()
-        AKSettings.enableLogging = false
+        AKSettings.enableLogging = true
         AKSettings.bufferLength = .medium
-        AKSettings.playbackWhileMuted = true
         
+        // 生成Sampler
         self.loadSampler(wavFileName: wavFileName)
         
+        // 设置ownMidi
+        self.setOwnMidi()
+        
+        // 生成Sequencer
+        self.midiFileName = midiFileName
         self.loadMidi(midiFileName)
         
         AudioKit.output = self.mainMixer
         
-        try! AudioKit.start()
+        do {
+            try AudioKit.start()
+            
+        } catch {
+            print("AudioKit.start() failed")
+            
+        }
         
         
     }
@@ -44,10 +64,29 @@ extension AboutAudioKit {
     /// 通过配置加载音色并存储
     private func loadSampler(wavFileName: String) -> Void {
         let totalFile = try! AKAudioFile(readFileName: wavFileName)
+        let leftArray = totalFile.floatChannelData![0]
         
-        for index in 0 ..< MusicProperties.wordArray.count {
-            // 当前文件名
-            let unitFileName = MusicProperties.wordArray[index]
+        let cutLineArray = self.filterContinuousZeroVolumeRangeArray(leftArray: leftArray, rangeLength: 2 * 44100)
+        
+        var currentTime = 0
+        
+        for index in 0 ..< MusicProperties.Word_PitchArray.count {
+            // 当前文件名(带音高)
+            let unitFileName = MusicProperties.Word_PitchArray[index]
+            // 当前字
+            let wordName: String = {
+                
+                if let range = unitFileName.range(of: "_", options: .backwards, range: nil, locale: nil) {
+                    // 获取音符字符串
+                    let tmpString = unitFileName.cutWithPlaces(startPlace: 0, endPlace: range.upperBound.encodedOffset - 1)
+                    
+                    return tmpString
+                    
+                }else {
+                    return ""
+                    
+                }
+            }()
             
             // 对应音高字符串
             let pitchName: String = {
@@ -69,14 +108,43 @@ extension AboutAudioKit {
             // 对应音高频率
             let pitchFre = MusicConverter.getFrequencyFrom(pitchName: pitchName)
             
+            let cutLine = cutLineArray[index]
+            
+            
+            // 起始时间 & 结束时间
+            let startTime = Int64(currentTime)
+            let endTime = Int64(currentTime + cutLine.1)
             
             let unitFile = try! totalFile.extracted(
-                fromSample: Int64(index * (MusicProperties.UnitWAVFileDuration + 4) * 44_100),
-                toSample: Int64((index * (MusicProperties.UnitWAVFileDuration + 4) + MusicProperties.UnitWAVFileDuration) * 44_100),
+                fromSample: startTime,
+                toSample: endTime,
                 name: unitFileName
             )
             
-            let sampler = AKSampler.init(glideRate: 0, loopThruRelease: false, isMonophonic: true, isLegato: true)
+            currentTime = cutLine.0 + cutLine.1
+            
+            /*
+             filterCutoff: <#T##Double#>,
+             filterStrength: <#T##Double#>,
+             filterResonance: <#T##Double#>,
+             attackDuration: <#T##Double#>,
+             decayDuration: <#T##Double#>,
+             sustainLevel: <#T##Double#>,
+             releaseDuration: <#T##Double#>,
+             filterEnable: <#T##Bool#>,
+             filterAttackDuration: <#T##Double#>,
+             filterDecayDuration: <#T##Double#>,
+             filterSustainLevel: <#T##Double#>,
+             filterReleaseDuration: <#T##Double#>,
+             */
+            
+            let sampler = AKSampler.init(
+                                         releaseDuration: 0.3,
+                                         glideRate: 0,
+                                         loopThruRelease: false,
+                                         isMonophonic: true,
+                                         isLegato: true)
+            
             
             let sampleDescriptor = AKSampleDescriptor.init(
                 noteNumber: pitchCount,
@@ -96,89 +164,135 @@ extension AboutAudioKit {
             
             sampler.buildKeyMap()
             
+            // 存储
+            MusicProperties.SamplersDict[wordName] = sampler
             
             // 绑定
-            sampler.connect(to: self.mainMixer)
-            
-            // 存储
-            MusicProperties.SamplersDict[unitFileName] = sampler
+            self.mainMixer.connect(input: sampler)
         
         }
         
         
     }// funcEnd
     
-    private func loadMidi(_ midiFileName: String) {
-        self.finalSequencer = AKSequencer()
-        self.finalSequencer.loadMIDIFile(midiFileName)
-        self.finalSequencer.enableLooping()
-
+    private func setOwnMidi() -> Void {
+        self.ownMidi.createVirtualPorts()
+        self.ownMidi.openInput("Session 1")
+        self.ownMidi.openOutput()
+        
+        self.ownMidi.addListener(self)
         
     }
     
-    private func playNote(word: String, note: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
-        MusicProperties.SamplersDict[word]!.play(noteNumber: note, velocity: velocity)
+    private func loadMidi(_ midiFileName: String) -> Void {
+        self.finalSequencer = nil
+        self.finalSequencer = AKSequencer()
+        self.finalSequencer!.loadMIDIFile(midiFileName)
+//        self.finalSequencer!.enableLooping()
+        
+        self.finalSequencer!.setGlobalMIDIOutput(self.ownMidi.virtualInput)
+        self.finalSequencer!.setTempo(80)
+        
     }
+    
+    /// 将音量数组中连续为零的区域提取出来
+    private func filterContinuousZeroVolumeRangeArray(leftArray: [Float], rangeLength: Int) -> [(Int, Int)] {
+        var zeroIndexCountArray: [(Int, Int)] = []
+        
+        for index in 0 ..< leftArray.count {
+            let currentVolume = leftArray[index]
+            
+            if currentVolume == Float(0) {
+                
+                if let lastZeroIndexCount = zeroIndexCountArray.last {
+                    
+                    if lastZeroIndexCount.0 + lastZeroIndexCount.1 == index {
+                        zeroIndexCountArray.replaceSubrange(
+                            (zeroIndexCountArray.count - 1) ..< (zeroIndexCountArray.count),
+                            with: repeatElement((lastZeroIndexCount.0, lastZeroIndexCount.1 + 1 ), count: 1)
+                        )
+                        
+                    }else {
+                        zeroIndexCountArray.append((index, 1))
+                        
+                    }
+                    
+                    
+                    
+                }else {
+                    zeroIndexCountArray.append((index, 1))
+                    
+                }
+                
+            }
+            
+            
+        }
+        
+        
+        var finalCutOffLineArray: [(Int, Int)] = []
+        
+        for zeroIndexCount in zeroIndexCountArray {
+            if zeroIndexCount.1 >= rangeLength {
+                finalCutOffLineArray.append(zeroIndexCount)
+            }
+        }
+        
+        
+        return finalCutOffLineArray
+    }// funcEnd
     
 }
 
 // MARK: - 接口
 extension AboutAudioKit {
     func play() -> Void {
-        self.mainMixer.play()
+        self.finalSequencer!.play()
         
-        let noteArray = self.finalSequencer.tracks[1].getMIDINoteData()
-        
-        var currentTime = 0.0
-        
-        var index = 0
-        
-        for note in noteArray {
-            
-            if note.noteNumber != 0 {
-                let word = MusicProperties.wordArray[index]
-                let sampler = MusicProperties.SamplersDict[word]
-                let noteString: String = {
-                    
-                    if let range = word.range(of: "_", options: .backwards, range: nil, locale: nil) {
-                        // 获取音符字符串
-                        let tmpString = word.cutWithPlaces(startPlace: range.upperBound.encodedOffset, endPlace: word.count)
-                        
-                        return tmpString
-                        
-                    }else {
-                        return ""
-                        
-                    }
-                }()
-                
-                let ownNoteNumber = MusicConverter.getMidiNoteFromString(noteString) - 12
-                
-                
-                DelayTask.createTaskWith(workItem: {
-                    sampler!.play(noteNumber: ownNoteNumber, velocity: note.velocity)
-                    
-                }, finishedCallBack: nil, delayTime: currentTime)
-                
-                
-                DelayTask.createTaskWith(workItem: {
-                    sampler!.stop(noteNumber: ownNoteNumber)
-                    
-                }, finishedCallBack: nil, delayTime: currentTime + note.duration.seconds)
-                
-                index += 1
-            }
-            
-            
-            currentTime += note.duration.seconds
-            
-        }
     }
     
     
     func stop() -> Void {
-        self.mainMixer.stop()
-        DelayTask.cancelAllWorkItems()
+        self.finalSequencer!.stop()
+    }
+    
+}
+
+// MARK: - MIDI监听
+extension AboutAudioKit: AKMIDIListener {
+    func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+        if channel != 0  {
+            if self.currentMidiNoteIndex < MusicProperties.LyricWordArray.count {
+                let word = MusicProperties.LyricWordArray[self.currentMidiNoteIndex]
+                let sampler = MusicProperties.SamplersDict[word]!
+                
+                sampler.play(noteNumber: noteNumber - 12, velocity: velocity)
+                
+            }
+        }
+        
+    }
+    
+    func receivedMIDINoteOff(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
+        if channel != 0 {
+            if self.currentMidiNoteIndex < MusicProperties.LyricWordArray.count {
+                let word = MusicProperties.LyricWordArray[self.currentMidiNoteIndex]
+                let sampler = MusicProperties.SamplersDict[word]!
+                
+                sampler.stop(noteNumber: noteNumber - 12)
+                self.currentMidiNoteIndex += 1
+                
+            }
+        }
+        
+    }
+    
+    func receivedMIDISetupChange() {
+        print("midi setup change, midi.inputNames: \(self.ownMidi.inputNames)")
+        let inputNames = self.ownMidi.inputNames
+        inputNames.forEach { inputName in
+            self.ownMidi.openInput(inputName)
+        }
     }
     
 }
