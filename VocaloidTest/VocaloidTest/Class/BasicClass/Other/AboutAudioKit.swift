@@ -21,14 +21,13 @@ class AboutAudioKit: NSObject {
     private var mainMixer: AKMixer = AKMixer.init()
     
     /// 速度
-    private var musicBPM: Double = 79 {
+    private var musicBPM: Double = 80 {
         didSet {
             self.finalSequencer!.setTempo(self.musicBPM)
-            let samplerReleaseDuration = self.musicBPM * 0.125 / 60
+            let samplerReleaseDuration = 0.3 * 80 / self.musicBPM
             
             for sampler in MusicProperties.SamplersDict.values {
-//                sampler.releaseDuration = samplerReleaseDuration
-                sampler.releaseDuration = 0.3
+                sampler.releaseDuration = samplerReleaseDuration
             }
         }
     }
@@ -273,7 +272,47 @@ extension AboutAudioKit: AKMIDIListener {
     func receivedMIDINoteOn(noteNumber: MIDINoteNumber, velocity: MIDIVelocity, channel: MIDIChannel) {
         if channel != 0  {
             if self.currentMidiNoteIndex < MusicProperties.LyricWordArray.count {
+//                let wordWithPitch = MusicProperties.LyricWordArray[self.currentMidiNoteIndex]
+//                
+//                // 对应音高字符串
+//                let pitchName: String = {
+//                    
+//                    if let range = wordWithPitch.range(of: "_", options: .backwards, range: nil, locale: nil) {
+//                        // 获取音符字符串
+//                        let tmpString = wordWithPitch.cutWithPlaces(startPlace: range.upperBound.encodedOffset, endPlace: wordWithPitch.count)
+//                        
+//                        return tmpString
+//                        
+//                    }else {
+//                        return ""
+//                        
+//                    }
+//                }()
+//                
+//                // 对应汉字
+//                let wordName: String = {
+//                    
+//                    if let range = wordWithPitch.range(of: "_", options: .backwards, range: nil, locale: nil) {
+//                        // 获取音符字符串
+//                        let tmpString = wordWithPitch.cutWithPlaces(startPlace: 0, endPlace: range.upperBound.encodedOffset)
+//                        
+//                        return tmpString
+//                        
+//                    }else {
+//                        return ""
+//                        
+//                    }
+//                }()
+//                
+//                // 汉字对应SamplerArray
+//                
+//                // 音高除4对应Sampler
+                
+                
+                
+                
                 let word = MusicProperties.LyricWordArray[self.currentMidiNoteIndex]
+            
                 let sampler = MusicProperties.SamplersDict[word]!
                 
                 sampler.play(noteNumber: noteNumber - 12, velocity: velocity)
