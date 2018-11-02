@@ -139,7 +139,7 @@ extension AboutAudioKit {
              */
             
             let sampler = AKSampler.init(
-                                         releaseDuration: 0.3,
+//                                         releaseDuration: 0.3,
                                          glideRate: 0,
                                          loopThruRelease: false,
                                          isMonophonic: true,
@@ -188,10 +188,10 @@ extension AboutAudioKit {
         self.finalSequencer = nil
         self.finalSequencer = AKSequencer()
         self.finalSequencer!.loadMIDIFile(midiFileName)
-//        self.finalSequencer!.enableLooping()
-        
         self.finalSequencer!.setGlobalMIDIOutput(self.ownMidi.virtualInput)
         self.finalSequencer!.setTempo(80)
+        self.finalSequencer!.disableLooping()
+        
         
     }
     
@@ -247,6 +247,10 @@ extension AboutAudioKit {
 // MARK: - 接口
 extension AboutAudioKit {
     func play() -> Void {
+        self.currentMidiNoteIndex = 0
+        
+        self.finalSequencer!.setTime(0)
+        
         self.finalSequencer!.play()
         
     }
@@ -254,6 +258,7 @@ extension AboutAudioKit {
     
     func stop() -> Void {
         self.finalSequencer!.stop()
+        
     }
     
 }
