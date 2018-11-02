@@ -20,6 +20,19 @@ class AboutAudioKit: NSObject {
     /// 主混合器
     private var mainMixer: AKMixer = AKMixer.init()
     
+    /// 速度
+    private var musicBPM: Double = 79 {
+        didSet {
+            self.finalSequencer!.setTempo(self.musicBPM)
+            let samplerReleaseDuration = self.musicBPM * 0.125 / 60
+            
+            for sampler in MusicProperties.SamplersDict.values {
+//                sampler.releaseDuration = samplerReleaseDuration
+                sampler.releaseDuration = 0.3
+            }
+        }
+    }
+    
     /// 当前音Index计数器
     private var currentMidiNoteIndex = 0
     
@@ -65,28 +78,14 @@ extension AboutAudioKit {
     private func loadSampler(wavFileName: String) -> Void {
         let totalFile = try! AKAudioFile(readFileName: wavFileName)
         let leftArray = totalFile.floatChannelData![0]
-        
+
         let cutLineArray = self.filterContinuousZeroVolumeRangeArray(leftArray: leftArray, rangeLength: 2 * 44100)
-        
+
         var currentTime = 0
         
         for index in 0 ..< MusicProperties.Word_PitchArray.count {
             // 当前文件名(带音高)
             let unitFileName = MusicProperties.Word_PitchArray[index]
-            // 当前字
-            let wordName: String = {
-                
-                if let range = unitFileName.range(of: "_", options: .backwards, range: nil, locale: nil) {
-                    // 获取音符字符串
-                    let tmpString = unitFileName.cutWithPlaces(startPlace: 0, endPlace: range.upperBound.encodedOffset - 1)
-                    
-                    return tmpString
-                    
-                }else {
-                    return ""
-                    
-                }
-            }()
             
             // 对应音高字符串
             let pitchName: String = {
@@ -109,19 +108,21 @@ extension AboutAudioKit {
             let pitchFre = MusicConverter.getFrequencyFrom(pitchName: pitchName)
             
             let cutLine = cutLineArray[index]
-            
-            
-            // 起始时间 & 结束时间
+
+
+
             let startTime = Int64(currentTime)
             let endTime = Int64(currentTime + cutLine.1)
-            
+
             let unitFile = try! totalFile.extracted(
                 fromSample: startTime,
                 toSample: endTime,
                 name: unitFileName
             )
-            
+
             currentTime = cutLine.0 + cutLine.1
+            
+            // 起始时间 & 结束时间
             
             /*
              filterCutoff: <#T##Double#>,
@@ -138,14 +139,6 @@ extension AboutAudioKit {
              filterReleaseDuration: <#T##Double#>,
              */
             
-            let sampler = AKSampler.init(
-//                                         releaseDuration: 0.3,
-                                         glideRate: 0,
-                                         loopThruRelease: false,
-                                         isMonophonic: true,
-                                         isLegato: true)
-            
-            
             let sampleDescriptor = AKSampleDescriptor.init(
                 noteNumber: pitchCount,
                 noteFrequency: Float(pitchFre),
@@ -160,16 +153,25 @@ extension AboutAudioKit {
                 endPoint: 0
             )
             
+            
+            
+            let sampler = AKSampler.init(
+                releaseDuration: 0.3,
+                glideRate: 0,
+                loopThruRelease: false,
+                isMonophonic: true,
+                isLegato: true)
+            
             sampler.loadAKAudioFile(from: sampleDescriptor, file: unitFile)
             
             sampler.buildKeyMap()
             
             // 存储
-            MusicProperties.SamplersDict[wordName] = sampler
+            MusicProperties.SamplersDict[unitFileName] = sampler
             
             // 绑定
             self.mainMixer.connect(input: sampler)
-        
+            
         }
         
         
@@ -189,7 +191,10 @@ extension AboutAudioKit {
         self.finalSequencer = AKSequencer()
         self.finalSequencer!.loadMIDIFile(midiFileName)
         self.finalSequencer!.setGlobalMIDIOutput(self.ownMidi.virtualInput)
-        self.finalSequencer!.setTempo(80)
+        
+        // 调整速度
+        self.musicBPM = 80
+        
         self.finalSequencer!.disableLooping()
         
         

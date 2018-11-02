@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     /// 当前播放属性
     private var playStatus: StaticProperties.PlayStatus = .Initial
     
+    /// test
+    private var count = 1
+    
 
     // MARK: - UI元素
     /// 播放按钮
@@ -70,8 +73,11 @@ extension ViewController {
         let stopPlayingImg = StaticProperties.loadImageFrom(.stopPlaying)
         self.playButton.setImage(stopPlayingImg, for: .normal)
         self.playStatus = .Playing
-        
+
         audioKitObj.play()
+        
+        
+        
     }
     
     /// 停止播放
@@ -79,9 +85,12 @@ extension ViewController {
         let startPlayingImg = StaticProperties.loadImageFrom(.startPlaying)
         self.playButton.setImage(startPlayingImg, for: .normal)
         self.playStatus = .Initial
-        
-        
+
+
         audioKitObj.stop()
+        
+        
+        
     }
 }
 

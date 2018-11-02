@@ -23,7 +23,7 @@
 		7C397E5721883E6000FF42EC /* MusicConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E5621883E6000FF42EC /* MusicConverter.swift */; };
 		7C397E592188420200FF42EC /* GlobalMusicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E582188420200FF42EC /* GlobalMusicProperties.swift */; };
 		7C422EF3218B14860069B1C9 /* totalFile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C422EF1218B14860069B1C9 /* totalFile.wav */; };
-		7C422EF7218B16B00069B1C9 /* 洛天依长音测试09.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7C422EF6218B16B00069B1C9 /* 洛天依长音测试09.mid */; };
+		7C9DD2DA218C43B900ABB75C /* 洛天依长音测试09.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7C9DD2D9218C43B900ABB75C /* 洛天依长音测试09.mid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		7C397E5621883E6000FF42EC /* MusicConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicConverter.swift; sourceTree = "<group>"; };
 		7C397E582188420200FF42EC /* GlobalMusicProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMusicProperties.swift; sourceTree = "<group>"; };
 		7C422EF1218B14860069B1C9 /* totalFile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = totalFile.wav; sourceTree = "<group>"; };
-		7C422EF6218B16B00069B1C9 /* 洛天依长音测试09.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "洛天依长音测试09.mid"; sourceTree = "<group>"; };
+		7C9DD2D9218C43B900ABB75C /* 洛天依长音测试09.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "洛天依长音测试09.mid"; sourceTree = "<group>"; };
 		9FED4E83C721F7C6E0B5332F /* Pods_VocaloidTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VocaloidTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B833FA858497B7B262A6956A /* Pods-VocaloidTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VocaloidTest.debug.xcconfig"; path = "Target Support Files/Pods-VocaloidTest/Pods-VocaloidTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,7 +203,7 @@
 			children = (
 				7C397E3021881AA600FF42EC /* Assets.xcassets */,
 				7C422EF1218B14860069B1C9 /* totalFile.wav */,
-				7C422EF6218B16B00069B1C9 /* 洛天依长音测试09.mid */,
+				7C9DD2D9218C43B900ABB75C /* 洛天依长音测试09.mid */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -288,8 +288,8 @@
 				7C397E3421881AA600FF42EC /* LaunchScreen.storyboard in Resources */,
 				7C422EF3218B14860069B1C9 /* totalFile.wav in Resources */,
 				7C397E3121881AA600FF42EC /* Assets.xcassets in Resources */,
-				7C422EF7218B16B00069B1C9 /* 洛天依长音测试09.mid in Resources */,
 				7C397E2F21881AA500FF42EC /* Main.storyboard in Resources */,
+				7C9DD2DA218C43B900ABB75C /* 洛天依长音测试09.mid in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

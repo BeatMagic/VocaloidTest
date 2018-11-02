@@ -34,18 +34,20 @@ class MusicProperties: NSObject {
         "cang_A#2","mang_A#2","de_G#2","tian_A#2","ya_A#2",
         "shi_A#2","wo_C#3","de_D#3","e_C#3","ai_A#2",
         "mian_C#3","mian_C#3","de_G#2","qing_C#3","shan_D#3",
-        "jiao_F3","xia_G#3","hua_G#3", "a_F3","zhen_D#3",
+        "jiao_F3","xia_G#3","hua_G#3", "a_F3","zheng_D#3",
         "cai_F3"
     ]
-    
-    
+
+
+
     /// 歌词单字拼音数组
     static let LyricWordArray: [String] = [
-        "cang","mang","de","tian","ya","shi","wo","de","e","ai","mian","mian","de","qing",
-        "shan","jiao","xia","hua","a","zhen","cai",
+        "cang_A#2","mang_A#2","de_G#2","tian_A#2","ya_A#2",
+        "shi_A#2","wo_C#3","de_D#3","e_C#3","ai_A#2",
+        "mian_C#3","mian_C#3","de_G#2","qing_C#3","shan_D#3",
+        "jiao_F3","xia_G#3","hua_G#3", "a_F3","zheng_D#3",
+        "cai_F3"
     ]
-    
-    
     
     
 }
