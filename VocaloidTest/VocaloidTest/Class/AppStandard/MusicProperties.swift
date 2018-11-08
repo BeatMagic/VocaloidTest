@@ -49,7 +49,24 @@ class MusicProperties: NSObject {
         "cai_F3"
     ]
     
+    static let testWordArray: [String] = [
+        "cang_A#2","cang_A#2","cang_G#2","cang_A#2","cang_A#2",
+        "cang_A#2","cang_C#3","cang_D#3","cang_C#3","cang_A#2",
+        "cang_C#3","cang_C#3","cang_G#2","cang_C#3","cang_D#3",
+        "cang_F3","cang_G#3","cang_G#3","cang_F3","cang_D#3",
+        
+        "cang_A#2","cang_A#2","cang_G#2","cang_A#2","cang_A#2",
+        "cang_A#2","cang_C#3","cang_D#3","cang_C#3","cang_A#2",
+        "cang_C#3","cang_C#3","cang_G#2","cang_C#3","cang_D#3",
+        "cang_F3","cang_G#3","cang_G#3","cang_F3","cang_D#3",
+        
+        "cang_G#2","cang_C#3","cang_D#3","cang_F3","cang_G#3","cang_G#3","cang_F3","cang_D#3",
+        "cang_C3",
+    ]
     
+    static let testPinyinArray: [String] = [
+        "c", "a", "ng"
+    ]
 }
 
 // MARK: - 存储数据

@@ -23,7 +23,15 @@
 		7C397E5721883E6000FF42EC /* MusicConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E5621883E6000FF42EC /* MusicConverter.swift */; };
 		7C397E592188420200FF42EC /* GlobalMusicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C397E582188420200FF42EC /* GlobalMusicProperties.swift */; };
 		7C422EF3218B14860069B1C9 /* totalFile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C422EF1218B14860069B1C9 /* totalFile.wav */; };
-		7C9DD2DA218C43B900ABB75C /* 洛天依长音测试09.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7C9DD2D9218C43B900ABB75C /* 洛天依长音测试09.mid */; };
+		7C96D5B921930BB000E1B510 /* cang_A#2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C96D5B821930BB000E1B510 /* cang_A#2.wav */; };
+		7C96D5BB21930C5500E1B510 /* 测试midi_3.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7C96D5BA21930C5500E1B510 /* 测试midi_3.mid */; };
+		7C96D5C02193236F00E1B510 /* a_test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C96D5BD2193236F00E1B510 /* a_test.wav */; };
+		7C96D5C12193236F00E1B510 /* ng_test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C96D5BE2193236F00E1B510 /* ng_test.wav */; };
+		7C96D5C4219330E500E1B510 /* 测试midi_5.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7C96D5C3219330E500E1B510 /* 测试midi_5.mid */; };
+		7CE9ABC1219407E700A8040A /* 测试midi_8.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9ABC0219407E700A8040A /* 测试midi_8.mid */; };
+		7CE9ABC321940D2900A8040A /* 测试midi_9.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9ABC221940D2900A8040A /* 测试midi_9.mid */; };
+		7CE9ABC521942F4C00A8040A /* 歌曲.mid in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9ABC421942F4C00A8040A /* 歌曲.mid */; };
+		7CE9ABCD2194650900A8040A /* c_test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9ABCC2194650900A8040A /* c_test.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +53,15 @@
 		7C397E5621883E6000FF42EC /* MusicConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicConverter.swift; sourceTree = "<group>"; };
 		7C397E582188420200FF42EC /* GlobalMusicProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMusicProperties.swift; sourceTree = "<group>"; };
 		7C422EF1218B14860069B1C9 /* totalFile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = totalFile.wav; sourceTree = "<group>"; };
-		7C9DD2D9218C43B900ABB75C /* 洛天依长音测试09.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "洛天依长音测试09.mid"; sourceTree = "<group>"; };
+		7C96D5B821930BB000E1B510 /* cang_A#2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cang_A#2.wav"; sourceTree = "<group>"; };
+		7C96D5BA21930C5500E1B510 /* 测试midi_3.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "测试midi_3.mid"; sourceTree = "<group>"; };
+		7C96D5BD2193236F00E1B510 /* a_test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = a_test.wav; sourceTree = "<group>"; };
+		7C96D5BE2193236F00E1B510 /* ng_test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ng_test.wav; sourceTree = "<group>"; };
+		7C96D5C3219330E500E1B510 /* 测试midi_5.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "测试midi_5.mid"; sourceTree = "<group>"; };
+		7CE9ABC0219407E700A8040A /* 测试midi_8.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "测试midi_8.mid"; sourceTree = "<group>"; };
+		7CE9ABC221940D2900A8040A /* 测试midi_9.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "测试midi_9.mid"; sourceTree = "<group>"; };
+		7CE9ABC421942F4C00A8040A /* 歌曲.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "歌曲.mid"; sourceTree = "<group>"; };
+		7CE9ABCC2194650900A8040A /* c_test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = c_test.wav; sourceTree = "<group>"; };
 		9FED4E83C721F7C6E0B5332F /* Pods_VocaloidTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VocaloidTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B833FA858497B7B262A6956A /* Pods-VocaloidTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VocaloidTest.debug.xcconfig"; path = "Target Support Files/Pods-VocaloidTest/Pods-VocaloidTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,11 +217,27 @@
 		7C397E512188229700FF42EC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				7C96D5BC2193236F00E1B510 /* PinyinWAVArray */,
 				7C397E3021881AA600FF42EC /* Assets.xcassets */,
 				7C422EF1218B14860069B1C9 /* totalFile.wav */,
-				7C9DD2D9218C43B900ABB75C /* 洛天依长音测试09.mid */,
+				7C96D5B821930BB000E1B510 /* cang_A#2.wav */,
+				7C96D5BA21930C5500E1B510 /* 测试midi_3.mid */,
+				7C96D5C3219330E500E1B510 /* 测试midi_5.mid */,
+				7CE9ABC0219407E700A8040A /* 测试midi_8.mid */,
+				7CE9ABC221940D2900A8040A /* 测试midi_9.mid */,
+				7CE9ABC421942F4C00A8040A /* 歌曲.mid */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		7C96D5BC2193236F00E1B510 /* PinyinWAVArray */ = {
+			isa = PBXGroup;
+			children = (
+				7CE9ABCC2194650900A8040A /* c_test.wav */,
+				7C96D5BD2193236F00E1B510 /* a_test.wav */,
+				7C96D5BE2193236F00E1B510 /* ng_test.wav */,
+			);
+			path = PinyinWAVArray;
 			sourceTree = "<group>";
 		};
 		8E1AF97AA0D62DD4DB8D1887 /* Pods */ = {
@@ -285,11 +317,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CE9ABC1219407E700A8040A /* 测试midi_8.mid in Resources */,
 				7C397E3421881AA600FF42EC /* LaunchScreen.storyboard in Resources */,
+				7C96D5BB21930C5500E1B510 /* 测试midi_3.mid in Resources */,
 				7C422EF3218B14860069B1C9 /* totalFile.wav in Resources */,
+				7C96D5C4219330E500E1B510 /* 测试midi_5.mid in Resources */,
+				7C96D5C12193236F00E1B510 /* ng_test.wav in Resources */,
+				7CE9ABCD2194650900A8040A /* c_test.wav in Resources */,
 				7C397E3121881AA600FF42EC /* Assets.xcassets in Resources */,
+				7CE9ABC321940D2900A8040A /* 测试midi_9.mid in Resources */,
+				7C96D5B921930BB000E1B510 /* cang_A#2.wav in Resources */,
 				7C397E2F21881AA500FF42EC /* Main.storyboard in Resources */,
-				7C9DD2DA218C43B900ABB75C /* 洛天依长音测试09.mid in Resources */,
+				7C96D5C02193236F00E1B510 /* a_test.wav in Resources */,
+				7CE9ABC521942F4C00A8040A /* 歌曲.mid in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

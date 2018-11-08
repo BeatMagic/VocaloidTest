@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 
 class ViewController: UIViewController {
-    var audioKitObj = AboutAudioKit.init(wavFileName: "totalFile.wav", midiFileName: "洛天依长音测试09")
+    var audioKitObj = AboutAudioKit.init(wavFileName: "totalFile.wav", midiFileName: "歌曲")
 
     // MARK: - 记录属性
     /// 当前播放属性

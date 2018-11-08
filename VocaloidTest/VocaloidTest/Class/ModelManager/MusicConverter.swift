@@ -147,6 +147,17 @@ extension MusicConverter {
         
     }
     
-    
+    /// 通过一个音高数字("38")获取音高字符串
+    static func getMidiNoteStringFromNum(_ noteNum: UInt8) -> String {
+        let noteNumInt = Int(noteNum)
+        
+        let pitchNameIndex = noteNumInt % 12
+        
+        let octaveCount = (noteNumInt - pitchNameIndex) / 12 - 2
+        
+        
+        return GlobalMusicProperties.NoteNamesWithSharps[pitchNameIndex] + String(octaveCount)
+
+    }
     
 }
