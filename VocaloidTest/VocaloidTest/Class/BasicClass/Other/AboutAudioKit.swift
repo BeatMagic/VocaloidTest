@@ -120,8 +120,13 @@ extension AboutAudioKit {
             
             switch pinyin {
             case "c":
+                sampler.releaseDuration = 0.015
                 sampleDescriptor.isLooping = false
                 self.pinyin_CDuration = wavFile.duration
+                
+            case "a":
+                sampler.attackDuration = 0.025
+                sampler.releaseDuration = 0.03
                 
             default:
                 print(".")
@@ -168,10 +173,10 @@ extension AboutAudioKit {
         #warning("生成拼音Track")
         let akPinyinTrack = self.finalSequencer!.newTrack()
 
-        self.createMidiNote(musicTrack: akPinyinTrack!, bpm: 60)
+        self.createMidiNote(musicTrack: akPinyinTrack!, bpm: 80)
         
         self.finalSequencer!.setGlobalMIDIOutput(self.ownMidi.virtualInput)
-        self.finalSequencer!.setTempo(60)
+        self.finalSequencer!.setTempo(80)
         
         
     }
@@ -184,7 +189,7 @@ extension AboutAudioKit {
         
         for midiNote in self.midiNoteArray {
             
-            let c_Duration = self.pinyin_CDuration
+            let c_Duration = self.pinyin_CDuration / speedModulus
             
             let playDuration = (midiNote.duration.seconds * speedModulus - c_Duration) / 5
             
@@ -342,9 +347,6 @@ extension AboutAudioKit: AKMIDIListener {
                 let playNoteNumber = noteNumber - 12
                 
                 let piyin = MusicProperties.testPinyinArray[self.currentMidiNoteIndex % MusicProperties.testPinyinArray.count]
-                print("播放\(piyin)")
-                
-
                 
                 let sampler = MusicProperties.SamplersDict[piyin]!
                 sampler.play(noteNumber: playNoteNumber, velocity: velocity)
@@ -366,7 +368,6 @@ extension AboutAudioKit: AKMIDIListener {
                 let playNoteNumber = noteNumber - 12
                 
                 let pinyin = self.samplerKeyArray.first!
-                print("停止\(pinyin)")
                 
                 let sampler = MusicProperties.SamplersDict[pinyin]!
                 sampler.stop(noteNumber: playNoteNumber)
